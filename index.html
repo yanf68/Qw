@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="he">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>האתר שלי</title>
+  <link rel="stylesheet" href="styles.css" /> <!-- כאן אתה יכול לשמור את העיצוב הקיים שלך -->
+  <style>
+    /* הוספתי רק את החלקים שמדברים על הנגישות */
+    #accessibility-btn {
+      position: fixed;
+      bottom: 20px;
+      left: 20px;
+      background: #000;
+      color: #fff;
+      padding: 10px;
+      border: none;
+      z-index: 999;
+      cursor: pointer;
+    }
+
+    #accessibility-menu {
+      position: fixed;
+      bottom: 70px;
+      left: 20px;
+      background: #fff;
+      border: 1px solid #000;
+      padding: 10px;
+      z-index: 1000;
+      box-shadow: 0 0 5px rgba(0,0,0,0.2);
+    }
+
+    .high-contrast {
+      background-color: black !important;
+      color: yellow !important;
+    }
+
+    .large-font {
+      font-size: 1.5em !important;
+    }
+
+    #accessibility-statement {
+      display: none;
+      background-color: #f9f9f9;
+      padding: 20px;
+      border: 1px solid #ccc;
+      margin-top: 20px;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <!-- כותרת ותפריט האתר שלך -->
+    <h1>ברוכים הבאים לאתר</h1>
+    <nav>
+      <ul>
+        <li><a href="#about">אודות</a></li>
+        <li><a href="#services">שירותים</a></li>
+        <li><a href="#contact">צור קשר</a></li>
+        <li><a href="#" id="accessibility-statement-link">הצהרת נגישות</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <!-- תוכן האתר שלך -->
+    <section id="about">
+      <h2>אודות</h2>
+      <p>זוהי דוגמה לאתר אישי עם נגישות מלאה, שמוסיף כפתור נגישות להגדלת טקסט וניגודיות גבוהה.</p>
+    </section>
+
+    <section id="services">
+      <h2>השירותים שלי</h2>
+      <ul>
+        <li>שירות 1</li>
+        <li>שירות 2</li>
+        <li>שירות 3</li>
+      </ul>
+    </section>
+
+    <section id="contact">
+      <h2>צור קשר</h2>
+      <p>טלפון: <a href="tel:0500000000">050-0000000</a></p>
+      <p>מייל: <a href="mailto:example@email.com">example@email.com</a></p>
+    </section>
+
+    <div id="accessibility-statement">
+      <h3>הצהרת נגישות</h3>
+      <p>האתר הזה נגיש לכלל המשתמשים ומספק מגוון כלים המותאמים לאנשים עם מוגבלויות.</p>
+      <p>תוסף הנגישות הפועל באתר: Nagishli, המאפשר הגדלת טקסט, ניגודיות גבוהה ועוד.</p>
+      <p>אם נתקלתם בבעיה או שאתם זקוקים לעזרה נוספת, אתם מוזמנים לפנות אלינו בכתובת האימייל: <a href="mailto:support@email.com">support@email.com</a>.</p>
+      <p>תאריך עדכון: מאי 2025</p>
+    </div>
+  </main>
+
+  <footer>
+    <p>© כל הזכויות שמורות</p>
+  </footer>
+
+  <!-- כפתור להצהרת נגישות -->
+  <button id="accessibility-btn">הצהרת נגישות</button>
+
+  <!-- תוסף נגישות Nagishli -->
+  <script>
+    (function() {
+      var s = document.createElement("script");
+      s.src = "https://cdn.jsdelivr.net/gh/nagishli/nagishli@latest/dist/nagishli.min.js";
+      s.onload = function() {
+        window.Nagishli.init({
+          position: 'left', // מיקום התפריט: שמאל
+          language: 'he'    // שפה עברית
+        });
+      };
+      document.head.appendChild(s);
+    })();
+
+    // הצגת הצהרת נגישות
+    document.getElementById("accessibility-statement-link").addEventListener("click", function() {
+      var statement = document.getElementById("accessibility-statement");
+      statement.style.display = (statement.style.display === "block") ? "none" : "block";
+    });
+  </script>
+</body>
+</html>
